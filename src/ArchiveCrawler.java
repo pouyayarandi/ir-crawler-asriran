@@ -35,7 +35,6 @@ public class ArchiveCrawler {
             newsLinks.addAll(parseNewsLinks(document));
         }
 
-        System.out.println(newsLinks.size());
         return newsLinks;
     }
 

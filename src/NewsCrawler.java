@@ -56,9 +56,7 @@ public class NewsCrawler {
 
     static private String parseBody(Document document) {
         Element element = document.selectFirst("div.body");
-        element.select("p").remove();
-        Element bodyDiv = element.selectFirst("div");
-        return bodyDiv.html();
+        return element.text().replace("\"", "");
     }
 
     static private String parseShortUrl(Document document) {
