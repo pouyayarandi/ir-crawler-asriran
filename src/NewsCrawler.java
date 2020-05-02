@@ -39,9 +39,13 @@ public class NewsCrawler {
     }
 
     static private String parsePublishDate(Document document) {
-        Element element = document.getElementsByClass("news_pdate_c").first();
-        element.select("span").remove();
-        return element.html().trim();
+        Element element;
+        if ((element = document.getElementsByClass("news_pdate_c").first()) != null) {
+            element.select("span").remove();
+            return element.html().trim();
+        } else {
+            return "";
+        }
     }
 
     static private String parseSubject(Document document) {
@@ -61,7 +65,11 @@ public class NewsCrawler {
 
     static private String parseShortUrl(Document document) {
         Element element = document.selectFirst("div.short-link");
-        return String.format("https://%s", element.selectFirst("a").html().trim());
+        Element shortUrlElement;
+        if ((shortUrlElement = element.selectFirst("a")) != null)
+            return String.format("https://%s", shortUrlElement.html().trim());
+        else
+            return "";
     }
 
     static private String[] parseTags(Document document) {
