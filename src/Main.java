@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         if (false) {
             News news = NewsCrawler.crawlPage("https://www.asriran.com/fa/news/723607/حراج-یک-نمونه-بسیار-کمیاب-از-پوخ-500-جی-ایی-درباره-مرسدسی-که-بنز-نیست-تصاویر");
-            System.out.println(news.getShortUrl());
+            System.out.println(news.getSubtitle());
             return;
         }
 

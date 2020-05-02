@@ -27,9 +27,10 @@ public class NewsCrawler {
         String title = parseTitle(document);
         String body = parseBody(document);
         String shortUrl = parseShortUrl(document);
+        String subtitle = parseSubtitle(document);
         String[] tags = parseTags(document);
 
-        return new News(newsId, publishDate, subject, title, body, shortUrl, tags);
+        return new News(newsId, publishDate, subject, title, body, shortUrl, subtitle, newsPage, tags);
     }
 
     static private String parseNewsId(Document document) {
@@ -68,6 +69,14 @@ public class NewsCrawler {
         Element shortUrlElement;
         if ((shortUrlElement = element.selectFirst("a")) != null)
             return String.format("https://%s", shortUrlElement.html().trim());
+        else
+            return "";
+    }
+
+    static private String parseSubtitle(Document document) {
+        Element element;
+        if ((element = document.selectFirst("div.subtitle")) != null)
+            return element.text();
         else
             return "";
     }
