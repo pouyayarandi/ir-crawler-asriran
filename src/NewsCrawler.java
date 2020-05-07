@@ -42,8 +42,8 @@ public class NewsCrawler {
     static private String parsePublishDate(Document document) {
         Element element;
         if ((element = document.getElementsByClass("news_pdate_c").first()) != null) {
-            element.select("span").remove();
-            return element.html().trim();
+            element.select("span.news_nav_title").remove();
+            return element.text().trim();
         } else {
             return "";
         }
