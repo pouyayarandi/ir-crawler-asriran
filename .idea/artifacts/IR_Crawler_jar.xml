@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="IR-Crawler:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/IR_Crawler_jar</output-path>
+    <root id="archive" name="IR-Crawler.jar">
+      <element id="module-output" name="IR-Crawler" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/gson-2.8.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jsoup-1.13.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
